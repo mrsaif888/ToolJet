@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 import { ButtonSolid } from '@/_ui/AppButton/AppButton';
 import { ToolTip } from '@/_components';
 
-function Header({ enableCollapsibleSidebar = false, collapseSidebar = false, toggleCollapsibleSidebar = () => {} }) {
+function Header({ enableCollapsibleSidebar = false, collapseSidebar = false, toggleCollapsibleSidebar = () => { } }) {
   const currentVersion = localStorage.getItem('currentVersion');
   const darkMode = localStorage.getItem('darkMode') === 'true';
 
@@ -29,6 +29,12 @@ function Header({ enableCollapsibleSidebar = false, collapseSidebar = false, tog
         return 'Applications';
     }
   };
+
+  //   To address the inconsistency in the header styling of the Workspace Constants page within the ToolJet dashboard, the first step is to thoroughly examine the CSS styles applied to the header element. By comparing these styles with those used for headers on other pages, such as Applications, Data sources, and ToolJet Database, it's possible to pinpoint the specific differences causing the inconsistency. Once identified, adjustments can be made to the CSS styles of the Workspace Constants header to align it more closely with the styling of other headers.
+
+  // After making the necessary modifications, rigorous testing of the Workspace Constants page is essential to ensure that the header now maintains consistency with other pages in the dashboard. This testing phase involves verifying that the updated styling does not introduce any unintended layout issues or visual discrepancies. Feedback from other contributors or maintainers of the ToolJet repository should also be sought to validate the proposed changes and gather additional insights for improvement.
+
+  // Once the styling consistency issue has been successfully addressed, a pull request can be prepared with the proposed changes. The pull request should include a clear description of the problem, the steps taken to resolve it, and any relevant documentation updates. By following this process and collaborating effectively with the community, the inconsistency in the header styling of the Workspace Constants page can be rectified, ensuring a more cohesive and user-friendly experience for ToolJet dashboard users.
   const location = useLocation();
   const pathname = routes(location?.pathname.split('/').pop());
 
